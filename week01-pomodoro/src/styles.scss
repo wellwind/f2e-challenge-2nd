@@ -1,4 +1,4 @@
-
+@import './variables';
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -28,5 +28,20 @@ $week1-pomodoro-theme: mat-light-theme($week1-pomodoro-primary, $week1-pomodoro-
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%; background-color: $background; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container {
+  height: 100vh;
+}
+
+.main {
+  height: 100vh;
+  color: $secondary;
+}
+
+.sidebar {
+  background: $secondary;
+  color: $secondary-text;
+  height: 100vh;
+}
