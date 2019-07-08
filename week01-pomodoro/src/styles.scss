@@ -28,8 +28,15 @@ $week1-pomodoro-theme: mat-light-theme($week1-pomodoro-primary, $week1-pomodoro-
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; background-color: $background; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  background-color: $background;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 
 .container {
   height: 100vh;
@@ -38,6 +45,117 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .main {
   height: 100vh;
   color: $secondary;
+  margin-top: 48px;
+  margin-left: 85px;
+  margin-right: 300px;
+
+  .add-input-box {
+    position: relative;
+    width: 100%;
+
+    input {
+      width: calc(100% - 70px - 16px);
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $primary;
+      padding-top: 18px;
+      padding-bottom: 18px;
+      padding-left: 16px;
+      padding-right: 70px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: $primary;
+      }
+    }
+
+    button {
+      position: absolute;
+      background: transparent;
+      border: 0px;
+      width: 24px;
+      height: 25px;
+      color: $primary;
+      right: 0;
+      top: 0;
+      margin-top: 16px;
+      margin-right: 16px;
+    }
+  }
+
+  .main-item {
+    margin-top: 145px;
+
+    .checkbox {
+      width: 48px;
+      height: 48px;
+      border: 2px solid $secondary;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+
+    .title {
+      .title-text {
+        height: 28px;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .title-circle {
+        margin-top: 8px;
+        width: 8px;
+        height: 8px;
+        border: 1px solid $primary;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .timer {
+    font-size: 176px;
+    color: $primary;
+  }
+
+  .rest-items {
+    position: relative;
+    width: 100%;
+    padding-bottom: 48px;
+    .item {
+      border-bottom: 1px solid rgba($secondary, 0.2);
+      padding-top: 8px;
+      padding-bottom: 8px;
+
+      .checkbox {
+        width: 24px;
+        height: 24px;
+        border: 2px solid $secondary;
+        border-radius: 50%;
+        margin-right: 16px;
+      }
+
+      .title {
+        text-transform: uppercase;
+        font-size: 16px;
+      }
+
+      .play {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .more {
+      color: $primary;
+      padding-top: 8px;
+      padding-bottom: 8px;
+    }
+  }
 }
 
 .sidebar {

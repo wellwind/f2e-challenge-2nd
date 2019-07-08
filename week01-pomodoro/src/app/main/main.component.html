@@ -1,8 +1,60 @@
 <div fxLayout="row" class="container">
-  <div fxFlex="100%" class="main">
+  <section fxFlex="100%" fxLayout="column" class="main">
+    <section class="add-input-box">
+      <input placeholder="add a new mission…" />
+      <button>
+        <i class="material-icons">add</i>
+      </button>
+    </section>
 
-  </div>
-  <div fxFlex="450px" class="sidebar">
+    <section class="main-item" fxLayout="row">
+      <div class="checkbox" fxFlex="48px"></div>
+      <div class="title" fxFlex="100%" fxLayout="column">
+        <div class="title-text">the First thing to do today</div>
+        <div class="title-circle"></div>
+      </div>
+    </section>
 
-  </div>
+    <section class="timer">
+      25:00
+    </section>
+
+    <section fxFlex="100%">&nbsp;</section>
+
+    <section class="rest-items">
+      <div class="item" fxLayout="row">
+        <div class="checkbox" fxFlex="24px"></div>
+        <div class="title" fxFlex="100%">the second thing to do today</div>
+        <div class="play" fxFlex="24px">
+          <i class="material-icons">play_circle_outline</i>
+        </div>
+      </div>
+
+      <div class="item" fxLayout="row">
+        <div class="checkbox" fxFlex="24px"></div>
+        <div class="title" fxFlex="100%">the second thing to do today</div>
+        <div class="play" fxFlex="24px">
+          <i class="material-icons">play_circle_outline</i>
+        </div>
+      </div>
+
+      <div class="item" fxLayout="row">
+        <div class="checkbox" fxFlex="24px"></div>
+        <div class="title" fxFlex="100%">the second thing to do today</div>
+        <div class="play" fxFlex="24px">
+          <i class="material-icons">play_circle_outline</i>
+        </div>
+      </div>
+
+      <div class="more" fxLayout="row">
+        <div fxFlex="100%"></div>
+        <div>
+          MORE
+        </div>
+      </div>
+    </section>
+
+    <section fxFlex="48px">&nbsp;</section>
+  </section>
+  <section fxFlex="450px" class="sidebar"></section>
 </div>
