@@ -62,7 +62,10 @@
 </div>
 
 <div class="clock">
-  <svg style="width: 540px; height: 540px;">
-    <path stroke="red" fill="white" d="M 270 270, L 270 0, A 270 270 1 0 1 520 290, z"></path>
+  <svg class="clock-rotate">
+    <circle cx="272" cy="272" r="270" stroke="#FF4384" stroke-width="4" fill="transparent" />
+    <path fill="#FF4384" [attr.d]="svgPathDefine" />
   </svg>
+
+  <div class="clock-mask"></div>
 </div>
