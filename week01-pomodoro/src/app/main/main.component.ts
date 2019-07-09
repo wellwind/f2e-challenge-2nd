@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
+  degree = 36;
+
   constructor() { }
 
   ngOnInit() {

@@ -1,59 +1,68 @@
 <div fxLayout="row" class="container">
-  <section fxFlex="100%" fxLayout="column" class="main">
-    <section class="add-input-box">
-      <input placeholder="add a new mission…" />
-      <button>
-        <i class="material-icons">add</i>
-      </button>
-    </section>
+  <section class="main" fxLayout="row">
+    <div class="main-content" fxLayout="column">
+      <section class="add-input-box">
+        <input placeholder="add a new mission…" />
+        <button>
+          <i class="material-icons">add</i>
+        </button>
+      </section>
 
-    <section class="main-item" fxLayout="row">
-      <div class="checkbox" fxFlex="48px"></div>
-      <div class="title" fxFlex="100%" fxLayout="column">
-        <div class="title-text">the First thing to do today</div>
-        <div class="title-circle"></div>
-      </div>
-    </section>
-
-    <section class="timer">
-      25:00
-    </section>
-
-    <section fxFlex="100%">&nbsp;</section>
-
-    <section class="rest-items">
-      <div class="item" fxLayout="row">
-        <div class="checkbox" fxFlex="24px"></div>
-        <div class="title" fxFlex="100%">the second thing to do today</div>
-        <div class="play" fxFlex="24px">
-          <i class="material-icons">play_circle_outline</i>
+      <section class="main-item" fxLayout="row">
+        <div class="checkbox" fxFlex="48px"></div>
+        <div class="title" fxFlex="100%" fxLayout="column">
+          <div class="title-text">the First thing to do today</div>
+          <div class="title-circle"></div>
         </div>
-      </div>
+      </section>
 
-      <div class="item" fxLayout="row">
-        <div class="checkbox" fxFlex="24px"></div>
-        <div class="title" fxFlex="100%">the second thing to do today</div>
-        <div class="play" fxFlex="24px">
-          <i class="material-icons">play_circle_outline</i>
+      <section class="timer">
+        25:00
+      </section>
+
+      <section fxFlex="100%">&nbsp;</section>
+
+      <section class="rest-items">
+        <div class="item" fxLayout="row">
+          <div class="checkbox" fxFlex="24px"></div>
+          <div class="title" fxFlex="100%">the second thing to do today</div>
+          <div class="play" fxFlex="24px">
+            <i class="material-icons">play_circle_outline</i>
+          </div>
         </div>
-      </div>
 
-      <div class="item" fxLayout="row">
-        <div class="checkbox" fxFlex="24px"></div>
-        <div class="title" fxFlex="100%">the second thing to do today</div>
-        <div class="play" fxFlex="24px">
-          <i class="material-icons">play_circle_outline</i>
+        <div class="item" fxLayout="row">
+          <div class="checkbox" fxFlex="24px"></div>
+          <div class="title" fxFlex="100%">the second thing to do today</div>
+          <div class="play" fxFlex="24px">
+            <i class="material-icons">play_circle_outline</i>
+          </div>
         </div>
-      </div>
 
-      <div class="more" fxLayout="row-reverse">
-        <div>
-          MORE
+        <div class="item" fxLayout="row">
+          <div class="checkbox" fxFlex="24px"></div>
+          <div class="title" fxFlex="100%">the second thing to do today</div>
+          <div class="play" fxFlex="24px">
+            <i class="material-icons">play_circle_outline</i>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <section fxFlex="48px">&nbsp;</section>
+        <div class="more" fxLayout="row-reverse">
+          <div>
+            MORE
+          </div>
+        </div>
+      </section>
+    </div>
   </section>
+
+  <section fxFlex="100%"></section>
+
   <section fxFlex="450px" class="sidebar"></section>
+</div>
+
+<div class="clock">
+  <svg style="width: 540px; height: 540px;">
+    <path stroke="red" fill="white" d="M 270 270, L 270 0, A 270 270 1 0 1 520 290, z"></path>
+  </svg>
 </div>
