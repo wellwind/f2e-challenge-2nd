@@ -18,7 +18,7 @@ export class MainComponent implements OnInit {
     setInterval(() => {
       this.degree += 10;
       this.degree = this.degree % 360;
-      this.svgPathDefine = this.describeArc(this.c, this.c, this.r, 0, this.degree);
+      this.svgPathDefine = this.describeArc(this.c + 2, this.c, this.r, 0, this.degree);
     }, 500);
   }
 
