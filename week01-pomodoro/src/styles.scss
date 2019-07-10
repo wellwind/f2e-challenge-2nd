@@ -38,8 +38,20 @@ body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
   height: 100vh;
+}
+
+.btn {
+  background: transparent;
+  border: 0px;
+  &:focus {
+    outline: none;
+  }
 }
 
 .main {
@@ -58,7 +70,7 @@ body {
         width: calc(100% - 70px - 20px);
         font-size: 16px;
         font-style: italic;
-        font-weight: 700;
+        font-weight: bold;
         text-transform: uppercase;
         color: $primary;
         padding-top: 18px;
@@ -77,8 +89,6 @@ body {
 
       button {
         position: absolute;
-        background: transparent;
-        border: 0px;
         width: 24px;
         height: 25px;
         color: $primary;
@@ -105,7 +115,7 @@ body {
           height: 28px;
           font-size: 24px;
           text-transform: uppercase;
-          font-weight: 700;
+          font-weight: bold;
         }
 
         .title-circle {
@@ -163,6 +173,29 @@ body {
   background: $secondary;
   color: $secondary-text;
   height: 100vh;
+
+  .sidebar-content {
+    padding-right: 85px;
+
+    .menu-item {
+      margin-top: 48px;
+
+      .material-icons {
+        color: $secondary-text;
+        font-size: 36px;
+      }
+    }
+  }
+
+  .sidebar-logo {
+    font-family: Futura;
+    font-weight: bold;
+    margin-bottom: 48px;
+    font-size: 24px;
+    transform: rotate(90deg) translateY(50%);
+    transform-origin: right;
+    margin-right: 6px;
+  }
 }
 
 .clock {
@@ -172,8 +205,6 @@ body {
   width: 544px;
   height: 544px;
   transform: translateY(-50%);
-  // border: 4px solid $primary;
-  // border-radius: 50%;
 
   .clock-rotate {
     width: 100%;
@@ -190,5 +221,35 @@ body {
     height: 500px;
     border: 4px solid $primary;
     border-radius: 50%;
+
+    .clock-control-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 96px;
+      height: 96px;
+      margin: 5px;
+
+      .material-icons {
+        color: $primary;
+        font-size: 96px;
+      }
+    }
+
+    .clock-control-stop {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin-left: 48px;
+      margin-top: 36px;
+      width: 24px;
+      height: 24px;
+      .material-icons {
+        color: $primary;
+        font-size: 24px;
+      }
+    }
   }
 }

@@ -3,7 +3,7 @@
     <div class="main-content" fxLayout="column">
       <section class="add-input-box">
         <input placeholder="add a new mission…" />
-        <button>
+        <button class="btn">
           <i class="material-icons">add</i>
         </button>
       </section>
@@ -58,7 +58,36 @@
 
   <section fxFlex="100%"></section>
 
-  <section fxFlex="450px" class="sidebar"></section>
+  <section fxFlex="450px" fxLayout="row" class="sidebar">
+    <div fxFlex="100%"></div>
+
+    <div class="sidebar-content" fxLayout="column" >
+      <div class="menu-item" fxLayoutAlign="end">
+        <button class="btn">
+          <i class="material-icons">list</i>
+        </button>
+      </div>
+
+      <div class="menu-item" fxLayoutAlign="end">
+        <button class="btn">
+          <i class="material-icons">assessment</i>
+        </button>
+      </div>
+
+      <div class="menu-item" fxLayoutAlign="end">
+        <button class="btn">
+          <i class="material-icons">library_music</i>
+        </button>
+      </div>
+
+      <div fxFlex="100%"></div>
+
+      <div class="sidebar-logo">POMODORO</div>
+    </div>
+
+
+
+  </section>
 </div>
 
 <div class="clock">
@@ -67,5 +96,16 @@
     <path fill="#FF4384" [attr.d]="svgPathDefine" />
   </svg>
 
-  <div class="clock-mask"></div>
+  <div class="clock-mask">
+    <div class="clock-control-play">
+      <button class="btn">
+        <i class="material-icons">pause_circle_filled</i>
+      </button>
+    </div>
+    <div class="clock-control-stop">
+      <button class="btn">
+        <i class="material-icons">stop</i>
+      </button>
+    </div>
+  </div>
 </div>
