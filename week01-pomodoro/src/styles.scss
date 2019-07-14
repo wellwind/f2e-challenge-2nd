@@ -33,6 +33,7 @@ body {
   height: 100%;
   background-color: $background;
 }
+
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
@@ -54,6 +55,43 @@ button {
   }
 }
 
+.add-input-box {
+  position: relative;
+  width: 100%;
+
+  input {
+    width: calc(100% - 70px - 20px);
+    font-size: 16px;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $primary;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 16px;
+    padding-right: 70px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: $primary;
+    }
+  }
+
+  button {
+    position: absolute;
+    width: 24px;
+    height: 25px;
+    color: $primary;
+    right: 0;
+    top: 0;
+    margin-top: 16px;
+    margin-right: 16px;
+  }
+}
+
 .main {
   .main-content {
     height: 100vh;
@@ -62,42 +100,7 @@ button {
     padding-top: 48px;
     padding-bottom: 48px;
 
-    .add-input-box {
-      position: relative;
-      width: 100%;
 
-      input {
-        width: calc(100% - 70px - 20px);
-        font-size: 16px;
-        font-style: italic;
-        font-weight: bold;
-        text-transform: uppercase;
-        color: $primary;
-        padding-top: 18px;
-        padding-bottom: 18px;
-        padding-left: 16px;
-        padding-right: 70px;
-
-        &:focus {
-          outline: none;
-        }
-
-        &::placeholder {
-          color: $primary;
-        }
-      }
-
-      button {
-        position: absolute;
-        width: 24px;
-        height: 25px;
-        color: $primary;
-        right: 0;
-        top: 0;
-        margin-top: 16px;
-        margin-right: 16px;
-      }
-    }
 
     .main-item {
       margin-top: 145px;
