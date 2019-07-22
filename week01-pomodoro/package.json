@@ -4,8 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:pwa": "ng build --prod && concurrently \"npm run start:backend\" \"http-server -p 8080 -c-1 dist/week1-pomodoro\"",
     "start:backend": "json-server --watch db.json",
     "start:frontend": "ng serve",
+    "start:prod": "http-server -p 8080 -c-1 dist/week1-pomodoro",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -43,6 +45,7 @@
     "@types/shortid": "^0.0.29",
     "codelyzer": "^5.0.0",
     "concurrently": "^4.1.1",
+    "http-server": "^0.11.1",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "json-server": "^0.15.0",
