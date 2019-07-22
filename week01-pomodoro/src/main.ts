@@ -4,16 +4,19 @@ import 'hammerjs';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
-
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .then(_ => {
-    if ('serviceWorker' in navigator && environment.production) {
-      navigator.serviceWorker.register('/ngsw-worker.js');
-    }
-  })
-  .catch(err => console.error(err));
+if ('serviceWorker' in navigator && environment.production) {
+  navigator.serviceWorker.register('/ngsw-worker.js').then(reg => {
+
+  });
+}
+
+const startUp = () => {
+  platformBrowserDynamic()
+    .bootstrapModule(AppModule)
+    .then(_ => {})
+    .catch(err => console.error(err));
+};
