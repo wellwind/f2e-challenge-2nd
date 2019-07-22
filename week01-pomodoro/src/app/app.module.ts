@@ -7,22 +7,12 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { SettingsComponent } from './settings/settings.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    TodoListComponent,
-    SettingsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule
-  ],
+  declarations: [AppComponent, MainComponent, TodoListComponent, SettingsComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, FlexLayoutModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

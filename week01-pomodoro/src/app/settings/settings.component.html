@@ -50,9 +50,9 @@
   <section class="todo-list" fxFlex="100%">
     <div class="todo-list-content">
       <section class="add-input-box">
-        <input placeholder="add a new mission…" />
+        <input placeholder="add a new mission…" #todoText (keyup.enter)="addTodo(todoText)" />
         <button class="btn">
-          <i class="material-icons">add</i>
+          <i class="material-icons" (click)="addTodo(todoText)">add</i>
         </button>
       </section>
 
@@ -66,13 +66,13 @@
         </div>
 
         <div class="items">
-          <div class="item" fxLayout="row" *ngFor="let item of todoItems">
-            <span class="item-radio">
+          <div class="item" fxLayout="row" *ngFor="let item of doingItems$ | async">
+            <button class="btn item-radio" (click)="toggleTodo(item)">
               <i class="material-icons">radio_button_unchecked</i>
-            </span>
+            </button>
 
             <span class="item-text" fxFlex="100%">
-              {{ item.text }}
+              {{ item.name }}
             </span>
 
             <span class="item-play">
@@ -92,16 +92,16 @@
         </div>
 
         <div class="items">
-          <div class="item" fxLayout="row" *ngFor="let item of doneItems; trackBy: trackByFn">
+          <div class="item" fxLayout="row" *ngFor="let item of doneItems$ | async; trackBy: trackByFn">
             <span class="item-radio">
               <i class="material-icons">radio_button_checked</i>
             </span>
 
             <span class="item-text done" fxFlex="100%">
-              {{ item.text }}
+              {{ item.name }}
             </span>
 
-            <span class="item-play" *ngFor="let _ of repeat(item.promodoros)">
+            <span class="item-play" *ngFor="let _ of repeat(item.pomodoros)">
               <i class="material-icons">lens</i>
             </span>
           </div>

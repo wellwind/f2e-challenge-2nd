@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../todo.service';
+import { shareReplay, map, switchMap } from 'rxjs/operators';
+import * as shortid from 'shortid';
+import { Subject, BehaviorSubject } from 'rxjs';
+import { TodoItem } from '../todo-item';
 
 @Component({
   selector: 'app-settings',
@@ -6,66 +11,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  todoItems = [
-    {
-      id: 0,
-      done: false,
-      text: 'the First thing to do today'
-    },
-    {
-      id: 1,
-      done: false,
-      text: 'the second thing to do today'
-    },
-    {
-      id: 2,
-      done: false,
-      text: 'the third thing to do today'
-    },
-    {
-      id: 3,
-      done: false,
-      text: 'the Forth thing to do today'
-    },
-    {
-      id: 4,
-      done: false,
-      text: 'complete the keynote'
-    },
-    {
-      id: 5,
-      done: false,
-      text: 'prepare presentation'
-    }
-  ];
+  refresh$ = new BehaviorSubject<void>(undefined);
 
-  doneItems = [
-    {
-      id: 6,
-      done: true,
-      text: 'mockup of the new case',
-      promodoros: 4
-    },
-    {
-      id: 7,
-      done: true,
-      text: 'product prototype',
-      promodoros: 2
-    },
-    {
-      id: 8,
-      done: true,
-      text: 'draw a wireframe',
-      promodoros: 7
-    },
-    {
-      id: 9,
-      done: true,
-      text: 'website detail refine',
-      promodoros: 5
-    }
-  ];
-  constructor() {}
+  todoItems$ = this.refresh$.pipe(
+    switchMap(_ => this.todoService.getTodoList()),
+    shareReplay()
+  );
+
+  doingItems$ = this.todoItems$.pipe(map(items => items.filter(item => !item.done)));
+
+  doneItems$ = this.todoItems$.pipe(map(items => items.filter(item => item.done)));
+
+  constructor(private todoService: TodoService) {}
 
   ngOnInit() {}
 
@@ -79,5 +36,30 @@ export class SettingsComponent implements OnInit {
       result.push(null);
     }
     return result;
+  }
+
+  addTodo(input: HTMLInputElement) {
+    if (!input.value || !input.value.trim()) {
+      return;
+    }
+
+    this.todoService
+      .addTodo({
+        id: shortid(),
+        name: input.value,
+        done: false,
+        pomodoros: 0
+      })
+      .subscribe(_ => {
+        this.refresh$.next();
+        input.value = '';
+        input.focus();
+      });
+  }
+
+  toggleTodo(item: TodoItem) {
+    this.todoService.toggleTodo(item).subscribe(_ => {
+      this.refresh$.next();
+    });
   }
 }

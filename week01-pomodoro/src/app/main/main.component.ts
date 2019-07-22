@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-main',
@@ -6,13 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+
+  todos$ = this.todoService.getTodoList();
+
   degree = 180;
 
   c = 270;
   r = 270;
 
   svgPathDefine = '';
-  constructor() {}
+  constructor(private todoService: TodoService) {}
 
   ngOnInit() {
     setInterval(() => {
