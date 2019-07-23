@@ -75,6 +75,11 @@ button {
       outline: none;
     }
 
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
     &::placeholder {
       color: $primary;
     }
@@ -99,8 +104,6 @@ button {
     padding-left: 85px;
     padding-top: 48px;
     padding-bottom: 48px;
-
-
 
     .main-item {
       margin-top: 145px;

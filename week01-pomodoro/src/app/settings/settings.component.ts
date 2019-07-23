@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TodoService } from '../todo.service';
-import { shareReplay, map, switchMap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+import { map, shareReplay, switchMap } from 'rxjs/operators';
 import * as shortid from 'shortid';
-import { Subject, BehaviorSubject } from 'rxjs';
+import { ConnectionService } from '../connection.service';
 import { TodoItem } from '../todo-item';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-settings',
@@ -11,6 +12,7 @@ import { TodoItem } from '../todo-item';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
+  isOffline$ = this.connectionService.offline$;
   refresh$ = new BehaviorSubject<void>(undefined);
 
   todoItems$ = this.refresh$.pipe(
@@ -22,7 +24,7 @@ export class SettingsComponent implements OnInit {
 
   doneItems$ = this.todoItems$.pipe(map(items => items.filter(item => item.done)));
 
-  constructor(private todoService: TodoService) {}
+  constructor(private todoService: TodoService, private connectionService: ConnectionService) {}
 
   ngOnInit() {}
 

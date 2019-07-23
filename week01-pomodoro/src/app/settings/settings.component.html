@@ -50,7 +50,7 @@
   <section class="todo-list" fxFlex="100%">
     <div class="todo-list-content">
       <section class="add-input-box">
-        <input placeholder="add a new mission…" #todoText (keyup.enter)="addTodo(todoText)" />
+        <input placeholder="add a new mission…" #todoText (keyup.enter)="addTodo(todoText)" [disabled]="isOffline$ | async"/>
         <button class="btn">
           <i class="material-icons" (click)="addTodo(todoText)">add</i>
         </button>
