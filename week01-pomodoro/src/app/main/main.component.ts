@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { interval, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -6,9 +8,10 @@ import { TodoService } from '../todo.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, OnDestroy {
 
   todos$ = this.todoService.getTodoList();
+  destroy$ = new Subject();
 
   degree = 180;
 
@@ -19,11 +22,16 @@ export class MainComponent implements OnInit {
   constructor(private todoService: TodoService) {}
 
   ngOnInit() {
-    setInterval(() => {
+    interval(500).pipe(takeUntil(this.destroy$)).subscribe(_ => {
       this.degree += 10;
       this.degree = this.degree % 360;
       this.svgPathDefine = this.describeArc(this.c + 2, this.c + 2, this.r, 0, this.degree);
-    }, 500);
+    });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   polarToCartesian(centerX: number, centerY: number, radius: number, angleInDegrees: number) {

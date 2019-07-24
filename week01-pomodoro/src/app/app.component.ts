@@ -29,6 +29,10 @@ export class AppComponent {
     const checkInterval$ = interval(3 * 1000);
     const appIsStableOrCheckNeeded$ = concat(appIsStable$, checkInterval$);
 
+    appIsStable$.subscribe(_ => {
+      console.log('stable');
+    });
+
     appIsStableOrCheckNeeded$.subscribe(() => swUpdate.checkForUpdate());
 
     swUpdate.available.subscribe(event => {

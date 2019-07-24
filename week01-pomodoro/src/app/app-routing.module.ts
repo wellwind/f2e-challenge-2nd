@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MainComponent } from './main/main.component';
 import { SettingsComponent } from './settings/settings.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: SettingsComponent
+    component: MainComponent
   },
   {
     path: 'settings',
