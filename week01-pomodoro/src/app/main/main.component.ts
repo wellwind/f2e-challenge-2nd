@@ -51,7 +51,7 @@ export class MainComponent implements OnInit, OnDestroy {
 
     const d = ['M', start.x, start.y, 'A', radius, radius, 0, arcSweep, 0, end.x, end.y, 'L', x, y, 'L', start.x, start.y].join(' ');
 
-    console.log(d);
+    // console.log(d);
 
     return d;
   }
