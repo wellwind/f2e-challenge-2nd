@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "start:pwa": "ng build --prod && concurrently \"npm run start:backend\" \"http-server -p 8080 -c-1 dist/week1-pomodoro\"",
+    "start:pwa": "ng run week1-pomodoro:build-pwa && concurrently \"npm run start:backend\" \"http-server -p 8080 -c-1 dist/week1-pomodoro\"",
     "start:backend": "json-server --watch db.json",
     "start:frontend": "ng serve",
     "start:prod": "http-server -p 8080 -c-1 dist/week1-pomodoro",
