@@ -19,7 +19,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    ServiceWorkerModule.register('sw-main.js', { enabled: environment.production, registrationStrategy: 'registerImmediately' })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
